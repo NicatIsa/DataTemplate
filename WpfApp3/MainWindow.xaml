@@ -1,0 +1,69 @@
+﻿<Window x:Class="WpfApp3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        
+    </Window.Resources>
+    <DockPanel LastChildFill="True">
+        <Grid DockPanel.Dock="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Menu Grid.Column="0">
+                <MenuItem Header="File">
+                    <MenuItem Header="OpenXml"></MenuItem>
+                    <MenuItem Header="Add"></MenuItem>
+                    <MenuItem Header="Delete"></MenuItem>
+                    <MenuItem Header="Update"></MenuItem>
+                </MenuItem>
+            </Menu>
+            <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right">
+                <Button Name="Addbutton" Click="Addbutton_Click" Content="Add" Height="20" Width="50" HorizontalAlignment="Center"></Button>
+                <Button Content="Delete" Height="20" Width="50"></Button>
+                <Button Content="Update" Height="20" Width="50"></Button>
+            </StackPanel>
+            
+        </Grid>
+            
+            <StackPanel DockPanel.Dock="Bottom">
+                  <ProgressBar DockPanel.Dock="Top" Height="15" Minimum="0" Maximum="100" Value="20"></ProgressBar>
+            </StackPanel>
+            
+            <StackPanel DockPanel.Dock="Left" >
+                <Label Content="Student Info"></Label>
+            </StackPanel>
+        <ListBox x:Name="listboxPerson">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <Image Width="100" Height="75" Source="{Binding Path=ImagePath}"></Image>
+                        <TextBlock FontSize="15" Text="{Binding Path=Name}"/>
+                        <TextBlock FontSize="15" Text="{Binding Path=Surname}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
+            <!--<WrapPanel Background="Azure">
+            <StackPanel Orientation="Horizontal">
+                <ListBox Name="StudentInfo">
+                    <ListBoxItem Background="AliceBlue">Name Surame</ListBoxItem>
+                    <ListBoxItem Background="AliceBlue">Name Surame</ListBoxItem>
+                    <ListBoxItem Background="AliceBlue">Name Surame</ListBoxItem>
+                    <ListBoxItem Background="AliceBlue">Name Surame</ListBoxItem>
+                </ListBox>
+            </StackPanel>
+            </WrapPanel>-->
+        </DockPanel>
+    
+</Window>
